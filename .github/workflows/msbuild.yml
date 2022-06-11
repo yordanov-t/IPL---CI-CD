@@ -85,5 +85,5 @@ jobs:
         filename: 'items.zip'
         path: 
           JSImpl/build/bin/Debug/dummy_gc.exe
-          JSImpl/build/bin/Debug/spasm.exe
+          #JSImpl/build/bin/Debug/spasm.exe
     
