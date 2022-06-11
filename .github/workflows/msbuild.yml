@@ -29,22 +29,56 @@ jobs:
 
     - name: Build Solution
       run: msbuild -m JSImpl/solution/JSImpl.sln
-
-    - name: Upload content
+    # Uploading test.exe into artifacts
+    - name: Upload test.exe
       uses: actions/upload-artifact@v3
       with:
-        name: content-obj
+        name: test
         path: JSImpl/build/bin/Debug/Test.exe
+    # Uploading JSImpl.exe into artifacts
+    - name: Upload JSImpl.exe
+      uses: actions/upload-artifact@v3
+      with:
+        name: JSImpl
+        path: JSImpl/build/bin/Debug/JSImpl.exe
+    # Uploading dummy_gc.exe into artifacts
+    - name: Upload dummy_gc.exe
+      uses: actions/upload-artifact@v3
+      with:
+        name: dummy_gc
+        path: JSImpl/build/bin/Debug/dummy_gc.exe
+    # Uploading spasm.exe into artifacts
+    - name: Upload spasm.exe
+      uses: actions/upload-artifact@v3
+      with:
+        name: spasm
+        path: JSImpl/build/bin/Debug/spasm.exe
 
   release-project:
    name: Release project
    runs-on: windows-latest
    needs: build-project
    steps:
-    - name: Download artifact
+    # Downloading test.exe into artifacts
+    - name: Download test.exe
       uses: actions/download-artifact@v3
       with:
-        name: content-obj
+        name: test
+    # Downloading JSImpl.exe into artifacts
+    - name: Download JSImpl.exe
+      uses: actions/download-artifact@v3
+      with:
+        name: JSImpl
+    # Downloading dummy_gc.exe into artifacts
+    - name: Download dummy_gc.exe
+      uses: actions/download-artifact@v3
+      with:
+        name: dummy_gc
+    # Downloading spasm.exe into artifacts
+    - name: Download spasm.exe
+      uses: actions/download-artifact@v3
+      with:
+        name: spasm
     - name: Test artifact download
       run: ls -R
     
