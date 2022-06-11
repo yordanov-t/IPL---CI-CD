@@ -59,26 +59,31 @@ jobs:
    runs-on: windows-latest
    needs: build-project
    steps:
-    # Downloading test.exe into artifacts
+    # Downloading test.exe from artifacts
     - name: Download test.exe
       uses: actions/download-artifact@v3
       with:
         name: test
-    # Downloading JSImpl.exe into artifacts
+    # Downloading JSImpl.exe from artifacts
     - name: Download JSImpl.exe
       uses: actions/download-artifact@v3
       with:
         name: JSImpl
-    # Downloading dummy_gc.exe into artifacts
+    # Downloading dummy_gc.exe from artifacts
     - name: Download dummy_gc.exe
       uses: actions/download-artifact@v3
       with:
         name: dummy_gc
-    # Downloading spasm.exe into artifacts
+    # Downloading spasm.exe from artifacts
     - name: Download spasm.exe
       uses: actions/download-artifact@v3
       with:
         name: spasm
-    - name: Test artifact download
-      run: ls -R
+    - name: Archive items
+      uses: thedoctor0/zip-release@master
+      with:
+        filename: 'items.zip'
+        path: 
+          JSImpl/build/bin/Debug/dummy_gc.exe
+          JSImpl/build/bin/Debug/spasm.exe
     
