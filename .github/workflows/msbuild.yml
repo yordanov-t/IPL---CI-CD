@@ -42,17 +42,17 @@ jobs:
         name: JSImpl
         path: JSImpl/build/bin/Debug/JSImpl.exe
     # Uploading dummy_gc.exe into artifacts
-    #- name: Upload dummy_gc.exe
-    #  uses: actions/upload-artifact@v3
-    #  with:
-    #    name: dummy_gc
-    #    path: JSImpl/build/bin/Debug/dummy_gc.exe
+    - name: Upload dummy_gc.exe
+      uses: actions/upload-artifact@v3
+      with:
+        name: dummy_gc
+        path: JSImpl/build/bin/Debug/dummy_gc.exe
     # Uploading spasm.exe into artifacts
-    #- name: Upload spasm.exe
-    #  uses: actions/upload-artifact@v3
-    #  with:
-    #    name: spasm
-    #    path: JSImpl/build/bin/Debug/spasm.exe
+    - name: Upload spasm.exe
+      uses: actions/upload-artifact@v3
+      with:
+        name: spasm
+        path: JSImpl/build/bin/Debug/spasm.exe
 
   release-project:
    name: Release project
@@ -70,19 +70,19 @@ jobs:
       with:
         name: JSImpl
     # Downloading dummy_gc.exe from artifacts
-    #- name: Download dummy_gc.exe
-    #  uses: actions/download-artifact@v3
-    #  with:
-    #    name: dummy_gc
-    # Downloading spasm.exe from artifacts
-    #- name: Download spasm.exe
-    #  uses: actions/download-artifact@v3
-    #  with:
-    #    name: spasm
-    - name: Archive items
-      uses: thedoctor0/zip-release@master
+    - name: Download dummy_gc.exe
+      uses: actions/download-artifact@v3
       with:
-        filename: 'items.zip'
-        path: JSImpl/build/bin/Debug/dummy_gc.exe
-          #JSImpl/build/bin/Debug/spasm.exe
+        name: dummy_gc
+    # Downloading spasm.exe from artifacts
+    - name: Download spasm.exe
+      uses: actions/download-artifact@v3
+      with:
+        name: spasm
+    #- name: Archive items
+    #  uses: thedoctor0/zip-release@master
+    #  with:
+    #    filename: 'items.zip'
+    #    path: JSImpl/build/bin/Debug/dummy_gc.exe
+    #      #JSImpl/build/bin/Debug/spasm.exe
     
