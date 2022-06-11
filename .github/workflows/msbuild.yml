@@ -28,6 +28,6 @@ jobs:
       run: nuget restore JSImpl/solution/JSImpl.sln
 
     - name: Build Solution
-      run: msbuild -m JSImpl/solution/JSImpl.sln
+      run: msbuild JSImpl/solution/JSImpl.sln
       with:
         msbuild-architecture: x64
