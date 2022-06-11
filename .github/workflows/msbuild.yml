@@ -20,6 +20,8 @@ jobs:
 
     - name: Add MSbuild to path
       uses: microsoft/setup-msbuild@v1.1
+      with:
+        msbuild-architecture: x64
 
     - name: Setup NuGet
       uses: nuget/setup-nuget@v1
@@ -28,6 +30,4 @@ jobs:
       run: nuget restore JSImpl/solution/JSImpl.sln
 
     - name: Build Solution
-      run: msbuild JSImpl/solution/JSImpl.sln
-      with:
-        msbuild-architecture: x64
+      run: msbuild -m JSImpl/solution/JSImpl.sln
