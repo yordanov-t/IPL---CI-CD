@@ -83,6 +83,6 @@ jobs:
       uses: thedoctor0/zip-release@master
       with:
         filename: 'items.zip'
-        path: 'JSImpl/build/bin/Debug'
+        path: './JSImpl/build/bin/Debug'
           #JSImpl/build/bin/Debug/spasm.exe
     
