@@ -12,7 +12,6 @@ jobs:
   build-project:
     name: Build project
     runs-on: windows-latest
-
     steps:
     - name: Check the code
       uses: actions/checkout@v3
@@ -36,13 +35,14 @@ jobs:
       with:
         name: content-obj
         path: JSImpl/build/bin/Debug/Test.exe
+
   release-project:
    name: Release project
    runs-on: windows-latest
    needs: build-project
    steps:
     - name: Download artifact
-    - uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v3
       with:
         name: content-obj
     - name: Test artifact download
