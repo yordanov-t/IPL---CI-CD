@@ -23,10 +23,11 @@ jobs:
     - name: Add MSbuild to path
       uses: microsoft/setup-msbuild@v1.1
 
-    - name: Build app for Release
-      run: npm run build
-    - name: Upload content
-      uses: actions/upload-artifact@v3
-      with:
-        name: simple-project
-        path: .
+    - name: Setup NuGet
+      uses: nuget/setup-nuget@v1
+
+    - name: Restore NuGet
+      run: nuget restore JSImpl/solution/JSImpl.sln
+
+    - name: Build Solution
+      run: msbuild JSImpl/solution/JSImpl.sln
