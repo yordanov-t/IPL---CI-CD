@@ -79,10 +79,10 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: spasm
-    #- name: Archive items
-    #  uses: thedoctor0/zip-release@master
-    #  with:
-    #    filename: 'items.zip'
-    #    path: JSImpl/build/bin/Debug/dummy_gc.exe
-    #      #JSImpl/build/bin/Debug/spasm.exe
+    - name: Archive items
+      uses: thedoctor0/zip-release@master
+      with:
+        filename: 'items.zip'
+        path: JSImpl/build/bin/Debug
+          #JSImpl/build/bin/Debug/spasm.exe
     
