@@ -36,5 +36,5 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: content-obj
-        path: JSImpl/solution/Test.exe
+        path: JSImpl/build/bin/Debug/Test.exe
     
