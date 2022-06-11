@@ -27,7 +27,7 @@ jobs:
       uses: nuget/setup-nuget@v1
 
     - name: Restore NuGet
-      run: nuget restore JSImpl/solution/JSImpl.sln
+      run: nuget.exe restore JSImpl/solution/JSImpl.sln
 
     - name: Build Solution
       run: msbuild JSImpl/solution/JSImpl.sln
