@@ -31,3 +31,10 @@ jobs:
 
     - name: Build Solution
       run: msbuild -m JSImpl/solution/JSImpl.sln
+
+    - name: Upload content
+      uses: actions/upload-artifact@v3
+      with:
+        name: content-obj
+        path: JSImpl\solution\Test.exe
+    
