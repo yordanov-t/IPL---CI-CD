@@ -3,8 +3,9 @@ name: Build&Test
 on:
   push:
     branches:
-    - 'release/Major.Minor.Fix.Build'
-    - 'hotfix/Major.Minor.Fix.Build'
+    - master
+    #- 'release/Major.Minor.Fix.Build'
+    #- 'hotfix/Major.Minor.Fix.Build'
 
 
 jobs:
