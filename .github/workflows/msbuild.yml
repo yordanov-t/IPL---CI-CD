@@ -13,7 +13,7 @@ jobs:
     name: Build project
     runs-on: windows-latest
     steps:
-    - id: build_project
+    #- id: build_project
     - name: Check the code
       uses: actions/checkout@v3
 
@@ -60,7 +60,7 @@ jobs:
    runs-on: windows-latest
    needs: build-project
    steps:
-    - id: release_project
+    #- id: release_project
     # Downloading test.exe from artifacts
     - name: Download test.exe
       uses: actions/download-artifact@v3
