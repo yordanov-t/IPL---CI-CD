@@ -1,4 +1,4 @@
-name: Build&Test
+name: Major.Minor.Fix.Build
 
 on:
   push:
@@ -94,12 +94,12 @@ jobs:
     - name: merge to master
     #if: steps.build_project.outcome == 'success'
       if: ${{ (steps.release_project.outcome == 'success') && (steps.build_project.outcome == 'success') }}
-      uses: mtanzi/action-automerge@v1
-      id: merge
-      with:
-        github_token: ${{ github.token }}
-        source: 'release/Major.Minor.Fix.Build'
-        target: 'master'
+      #uses: mtanzi/action-automerge@v1
+      #id: merge
+      #with:
+      #  github_token: ${{ github.token }}
+      #  source: 'release/Major.Minor.Fix.Build'
+      #  target: 'master'
         #webhook_url: #if present add the Slack webhook
 
 
