@@ -82,7 +82,7 @@ jobs:
     - name: Archive items
       uses: thedoctor0/zip-release@master
       with:
-        filename: 'items.zip'
+        filename: 'Major.Minor.Fix.Build.zip'
         path: .
           #JSImpl/build/bin/Debug/spasm.exe
   merge-project:
