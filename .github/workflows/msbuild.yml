@@ -87,13 +87,13 @@ jobs:
         filename: 'items.zip'
         path: .
           #JSImpl/build/bin/Debug/spasm.exe
-  merge-project:
-    name: Merge to master
-    runs-on: windows-latest
-    steps:
-    - name: merge to master
+  #merge-project:
+  #  name: Merge to master
+  #  runs-on: windows-latest
+  #  steps:
+  #  - name: merge to master
     #if: steps.build_project.outcome == 'success'
-      if: ${{ (steps.release_project.outcome == 'success') && (steps.build_project.outcome == 'success') }}
+  #    if: ${{ (steps.release_project.outcome == 'success') && (steps.build_project.outcome == 'success') }}
       #uses: mtanzi/action-automerge@v1
       #id: merge
       #with:
