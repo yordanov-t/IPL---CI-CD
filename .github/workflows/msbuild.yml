@@ -13,7 +13,6 @@ jobs:
     name: Build project
     runs-on: windows-latest
     steps:
-    #- id: build_project
     - name: Check the code
       uses: actions/checkout@v3
 
@@ -60,7 +59,6 @@ jobs:
    runs-on: windows-latest
    needs: build-project
    steps:
-    #- id: release_project
     # Downloading test.exe from artifacts
     - name: Download test.exe
       uses: actions/download-artifact@v3
@@ -87,19 +85,19 @@ jobs:
         filename: 'items.zip'
         path: .
           #JSImpl/build/bin/Debug/spasm.exe
-  #merge-project:
-  #  name: Merge to master
-  #  runs-on: windows-latest
-  #  steps:
-  #  - name: merge to master
+  merge-project:
+    name: Merge to master
+    runs-on: windows-latest
+    steps:
+    - name: merge to master
     #if: steps.build_project.outcome == 'success'
-  #    if: ${{ (steps.release_project.outcome == 'success') && (steps.build_project.outcome == 'success') }}
-      #uses: mtanzi/action-automerge@v1
-      #id: merge
-      #with:
-      #  github_token: ${{ github.token }}
-      #  source: 'release/Major.Minor.Fix.Build'
-      #  target: 'master'
+      if: ${{ (steps.build-project.outcome == 'success') && (steps.release-project.outcome == 'success') }}
+      uses: mtanzi/action-automerge@v1
+      id: merge
+      with:
+        github_token: ${{ github.token }}
+        source: 'release/Major.Minor.Fix.Build'
+        target: 'master'
         #webhook_url: #if present add the Slack webhook
 
 
